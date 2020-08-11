@@ -13,27 +13,27 @@
 <p align="center">
 <a href="#"><img title="Version" src="https://img.shields.io/badge/Version-2.2-green.svg?style=flat-square"></a>
 <a href="https://github.com/Phantom-19/followers"><img title="Abonnés" src="https://img.shields.io/github/followers/Phantom-19?color=blue&style=flat-square"></a>
-<a href="https://github.com/Phantom-19/link/stargazers/"><img title="Étoiles" src="https://img.shields.io/github/stars/Phantom-19/user_found??color=red&style=flat-square"></a>
-<a href="https://github.com/Phantom-19/link/network/members"><img title="Fourches" src="https://img.shields.io/github/forks/Phantom-19/user_found??color=red&style=flat-square"></a>
-<a href="https://github.com/Phantom-19/link/watchers"><img title="En train de regarder" src="https://img.shields.io/github/watchers/Phantom-19/user_found?label=Watchers&color=blue&style=flat-square"></a>
+<a href="https://github.com/Phantom-19/link/stargazers/"><img title="Étoiles" src="https://img.shields.io/github/stars/Phantom-19/browser??color=red&style=flat-square"></a>
+<a href="https://github.com/Phantom-19/link/network/members"><img title="Fourches" src="https://img.shields.io/github/forks/Phantom-19/browser??color=red&style=flat-square"></a>
+<a href="https://github.com/Phantom-19/link/watchers"><img title="En train de regarder" src="https://img.shields.io/github/watchers/Phantom-19/browser?label=Watchers&color=blue&style=flat-square"></a>
 <p align="right">
 <a href="#"><img title="Langage" src="https://forthebadge.com/images/badges/made-with-python.svg"></a>
 </p>
 
-## `Installation Hacker `:
+## `Installation browser `:
 
 * `apt update`
 * `apt install git  python `
-* `git clone https://github.com/Phantom-19/user_found.git`
-* `cd user_found`
+* `git clone https://github.com/Phantom-19/browser.git`
+* `cd browser`
 ## ` Execution > ` `python3 search`
 
 ## ` NOM D'UTILISATEUR : Faxel    `
 ## ` MOT DE PASSE      : 08127934 `
 
-##  `Commande unique de user_found`:
+##  `Commande unique de browser`:
 ```
-apt update ; apt install git curl -y ; git clone https://github.com/Phantom-19/user_found.git ; cd user_found ; python3 search
+apt update ; apt install git curl -y ; git clone https://github.com/Phantom-19/browser.git ; cd browser ; python3 search
 ```
 ### `Si vous copiez ce code, alors donnez-moi les crédits` 
 ## `Retrouvez moi sur` :

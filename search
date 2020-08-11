@@ -7,30 +7,36 @@
 #\033[1;97m═╬══\033[1;91m►
 ####################################################################################################
 # -Effacer le systeme en question-#
-import os
-def cls():
-    os.system('clear')
+import os,platform
+####################################################################################################        
+# -Effacer le systeme en question-#
+def _cls():
+	if os.name == 'nt':
+            os.system('cls')
+	else:
+            os.system('clear')
+            
 ####################################################################################################
 raw_input = input
 logo_faxel =("""\033[38;5;247m╭━╮╭━╮╱╱\033[38;5;214m╭━━━╮╱╱╱╱╱╱╱╱╭╮\n\033[38;5;247m┃┃╰╯┃┃╱╱\033[38;5;214m┃╭━━╯╱╱╱╱╱╱╱╱┃┃\n\033[38;5;247m┃╭╮╭╮┣━╮\033[38;5;214m┃╰━━┳━━┳╮╭┳━━┫┃\n\033[38;5;247m┃┃┃┃┃┃╭╯\033[38;5;214m┃╭━━┫╭╮┣╋╋┫┃━┫┃\n\033[38;5;247m┃┃┃┃┃┃┃╱\033[38;5;214m┃┃╱╱┃╭╮┣╋╋┫┃━┫╰╮\n\033[38;5;247m╰╯╰╯╰┻╯╱\033[38;5;214m╰╯╱╱╰╯╰┻╯╰┻━━┻━╯""")
 ####################################################################################################
 # -Importation des modules-#
 try:
-    import os, time, sys, fileinput, datetime, random, requests, mechanize,datetime,urllib2,urllib, urllib.request,webbrowser
+    import os, time, sys, fileinput, datetime, random, requests, mechanize,datetime,signal,platform,subprocess,webbrowser
     from six.moves import input
     from mechanize import Browser
     from requests import get, post 
     from time import sleep
     print("\n\033[1;92m Exigences des modules disponibles")
 except :
-    cls()
+    _cls()
     print("\033[1;95m Configuration requise pour l'installation....\033[1;97m")
     os.system('pip3 install requests')
     os.system('pip3 install mechanize')
-    cls()
+    _cls()
 ####################################################################################################
 if sys.version[0] in '2':
-    cls()
+    _cls()
     print(logo_faxel)
     exit("\n\t\033[1;91m[\033[1;93m*\033[1;91m]\033[1;97m Vous ne pouvez pas utiliser\033[1;95m python2\033[1;97m pour executer ce script\033[1;97m.\n\t\033[1;91m[\033[1;93m*\033[1;91m]\033[1;97m Veuillez l'executer en tapant \033[38;5;247mpython3\n")
 ####################################################################################################
@@ -41,10 +47,6 @@ def mael(f):
         sys.stdout.flush()
         time.sleep(0.009)
         #time.sleep(1e-43)
-####################################################################################################        
-# -Effacer le systeme en question-#
-def cls():
-    os.system('clear')
 ####################################################################################################        
 # -La date du jours courant-#
 def horaire():
@@ -111,15 +113,13 @@ logo_faxel =("""\033[38;5;214m──\033[38;5;125m▄\033[38;5;214m────\
 logo_kali = ("""\033[38;5;214m    ..,;:ccc,.                          \n\033[38;5;214m          ......''';lxO.                        \n\033[38;5;214m.....''''..........,:ld;                        \n\033[38;5;214m           .';;;:::;,,.x,                       \n\033[38;5;214m      ..'''.            0Xxoc:,.  ...           \n\033[38;5;214m  ....                ,ONkc;,;cokOdc',.         \n\033[38;5;214m .                   OMo           ':'o.       \n\033[38;5;214m                    dMc               :OO;      \n\033[38;5;214m                    0M.                 .:o.    \n\033[38;5;214m                    ;Wd                         \n\033[38;5;214m                     ;XO,                       \n\033[38;5;214m                       ,d0Odlc;,..              \n\033[38;5;214m                           ..',;:cdOOd::,.    \033[1;36m ⓥ①.⑦\n\033[38;5;214m                                    .:d;.':;.   \n\033[38;5;214m                                       'd,  .'  \n\033[38;5;214m                                         ;l   ..\n\033[38;5;214m                  \n\033[38;5;247m          🅵🅰🆇🅴🅻                         \033[38;5;214m.o    \n                                            c   \n\033[38;5;214m                                             .' \n\033[38;5;214m                                             .  """)
 ####################################################################################################
 ####################################################################################################
-####################################################################################################
-####################################################################################################
 def connection(url='http://www.google.com/', timeout=3):
     try:
-        cls()
+        _cls()
         verficateur_connexion = requests.get(url, timeout=timeout)
         verficateur_connexion.raise_for_status()
         load("\033[1;91m[\033[1;92m●\033[1;91m]\033[1;97m Verification de la connexion\033[1;92m...")
-        cls()
+        _cls()
         print(logo_kali)
         mael("\n\t\t\033[1;92mVous êtes connecté à Internet\n")
         raw_input("\t\t\033[1;91m[[38;5;24mSuivant\033[1;91m]")
@@ -132,12 +132,12 @@ def connection(url='http://www.google.com/', timeout=3):
 ####################################################################################################
 def verifie():
     if connection() == True:
-         securite()
+         Menu()
     else:
          quitter()
 ####################################################################################################            
 def securite():
-    cls()
+    _cls()
     horaire()
     print(logo_sec)
     nom_u = 'Faxel'
@@ -156,19 +156,25 @@ def securite():
     if mot_passant == mdp:
         load("\033[1;97m Chargement en cours\033[1;92m...")
         print("\n\033[1;91m[\033[1;93m!\033[1;91m]\033[1;92m Connexion réussie ")
-        Menu()
+        verifie()
     elif not mot_passant == mdp:
         print ("\n\033[1;91m[\033[1;93m*\033[1;91m]\033[1;95m Mot de passe incorrect!")
         os.system('xdg-open https://t.me/Faxelh')
         securite()
+####################################################################################################
+def signal_fermeture(signal, frame):
+		_cls()
+		print(logo)
+        menu()
+signal.signal(signal.SIGINT, signal_fermeture)
 ####################################################################################################     
 def Menu():
-    cls()
+    _cls()
     horaire()
     print(logo)
     print("\033[1;97m╔"+37*"═"+1*"═╗")
-    print("\033[1;97m║ \033[1;91m[\033[1;96m1.\033[1;91m]\033[38;5;214m Phase a la recherche User       \033[1;97m║")
-    print("\033[1;97m║ \033[1;91m[\033[1;96m2.\033[1;91m]\033[38;5;121m Abonnez-vous à ma chaîne youtube\033[1;97m║") 
+    print("\033[1;97m║ \033[1;91m[\033[1;96m1.\033[1;91m]\033[38;5;214m Menu recherche multiple         \033[1;97m║")
+    print("\033[1;97m║ \033[1;91m[\033[1;96m2.\033[1;91m]\033[38;5;121m Abonnez-vous à ma chaîne youtube\033[1;97m║")
     print("\033[1;97m║ \033[1;91m[\033[1;96m3.\033[1;91m]\033[38;5;136m Groupe Telegram N°1             \033[1;97m║") 
     print("\033[1;97m║ \033[1;91m[\033[1;96m4.\033[1;91m]\033[38;5;125m Groupe Telegram N°2             \033[1;97m║") 
     print("\033[1;97m╚"+37*"═"+1*"═╝") 
@@ -182,21 +188,21 @@ def choix_menu():
     elif dmd =="1":
         user_found()
     elif dmd =="2":
-        cls()
+        _cls()
         print(logo_youtube)
         mael("\033[1;91m[\033[1;93m!\033[1;91m]\033[1;96m Chaîne YouTube FASTER AXEL " )
         os.system('xdg-open https://www.youtube.com/c/FASTERAXEL?sub_confirmation=1')
         raw_input('\n\033[1;91m [\033[1;93m!\033[1;91m]\033[1;97m Appuyer entrer pour retourner au menu\033[1;93m...')
         Menu()
     elif dmd =="3":
-        cls()
+        _cls()
         print(logo_ach)
         mael("\033[1;91m[\033[1;93m!\033[1;91m]\033[1;96m Groupe Telegram A-C H ==TERMUX " )
         os.system('xdg-open https://t.me/Hacker_Termux1')
         raw_input('\n\033[1;91m [\033[1;93m!\033[1;91m]\033[1;97m Appuyer entrer pour retourner au menu...')
         Menu()
     elif dmd =="4":
-        cls()
+        _cls()
         print(logo_ndao)
         mael("\033[1;91m[\033[1;93m!\033[1;91m]\033[1;96m Groupe Telegram Top Hacking" )
         os.system('xdg-open https://t.me/NDAOKING')
@@ -207,12 +213,7 @@ def choix_menu():
         raw_input('\n\033[1;91m [\033[1;93m!\033[1;91m]\033[1;97m Appuyer entrer pour retourner au menu...')
         Menu()    
 ####################################################################################################
-def user_found():
-    cls()
-    print(logo_faxel)
-    print("\033[1;97m║")
-    _requete_en_cours = raw_input("\033[1;97m╚═\033[1;31m▶\033[38;5;245m Entrer un nom d'utilisateur \033[1;97m═╬══\033[1;91m► \033[1;96m")
-    lien = {
+_faxel_lien = {
         'https://www.facebook.com',
         'https://twitter.com',
         'https://www.instagram.com',
@@ -254,24 +255,427 @@ def user_found():
         'https://www.tiktok.com/@',
         'https://haraj.com.sa/users',
         'https://t.me/',
-   }
-    for lien_2 in lien :
-        lien_3 = lien_2 +"/"+_requete_en_cours    
-        try :  
-            _ouverture_url = get.request._ouverture_url(lien_3)    
-            print( lien_3 + " ==> \n\033[1;92m Bon ")  
-        except urllib.error.URLError as msg :       
-                    print( lien_3 + " ==> \n\033[1;91m Desolé ")   
-    load("\033[1;91m[\033[1;93m!\033[1;91m]\033[1;95mLa recherche de tweets d'utilisateurs est en cours")
-    print("\n")
-    recherche = webbrowser.open_new("https://mobile.twitter.com/search?q="+_requete_en_cours+"")        
-    load("\033[1;91m[\033[1;93m+\033[1;91m]\033[1;97m Recherche de l'utilisateur dans Google\033[1;92m...")
-    print("\n")
-    reche = webbrowser.open_new('http://www.google.com/search?q='+_requete_en_cours+'&pov=107128685182183119625&usg=__uAMtO0js_mAj03ni57W7YeWKuB8=&hl=ar')
-    raw_input('\n\033[1;91m[\033[1;93m+\033[1;91m]\033[1;97m Appuyer entrer pour retourner au menu\033[1;92m...')
-    Menu()     
-####################################################################################################
-####################################################################################################            
+}
+####################################################################################################   
+def user_found():
+    cls()
+    horaire()
+    print(logo)
+    print("\033[1;97m╔"+30*"═"+1*"═╗")
+    print("\033[1;97m║ \033[1;91m[\033[1;96m1.\033[1;91m]\033[38;5;214m Nom ou identifiant       \033[1;97m║")
+    print("\033[1;97m║ \033[1;91m[\033[1;96m2.\033[1;91m]\033[38;5;125m Numéro de téléphone      \033[1;97m║")
+    print("\033[1;97m║ \033[1;91m[\033[1;96m3.\033[1;91m]\033[38;5;227m Image (Nouveau)          \033[1;97m║")
+    print("\033[1;97m║ \033[1;91m[\033[1;96m4.\033[1;91m]\033[38;5;136m Adresse IP               \033[1;97m║")
+    print("\033[1;97m║ \033[1;91m[\033[1;96m5.\033[1;91m]\033[38;5;245m Snapchat de Faxel        \033[1;97m║")
+    print("\033[1;97m║ \033[1;91m[\033[1;96mM.\033[1;91m]\033[38;5;111m Menu General             \033[1;97m║")
+    print("\033[1;97m╚"+30*"═"+1*"═╝") 
+    print("\033[1;97m║")
+    choix_user_found()
+def choix_user_found():
+    _dmd = raw_input("\033[1;97m╚═\033[1;31m▶\033[38;5;245m Mr \033[38;5;221mFaxel \033[1;97m═╬══\033[1;91m► \033[1;96m" )
+    if _dmd =="":
+        print("\n\t\033[1;91m[\033[1;93m!\033[1;91m]\033[1;95m Remplissez correctement ")
+        user_found()
+    elif _dmd =="1":
+        Par_identifiant()
+    elif _dmd =="2":
+        Par_numero()
+    elif _dmd =="3":
+        user_found()
+    elif _dmd =="4":
+        user_found()
+    elif _dmd =="5":
+        webbrowser.open('https://www.snapchat.com/add/mctony64')
+        raw_input('\n\033[1;91m [\033[1;93m!\033[1;91m]\033[1;97m Appuyer entrer pour retourner au menu...')
+        user_found()
+    elif _dmd =="m" or _dmd =="M":
+        Menu()     
+    else:
+        print('\n\x1b[1;91m[\xe2\x9c\x96] \x1b[1;97m '+_dmd+' \x1b[1;91mindisponible')
+        raw_input('\n\033[1;91m [\033[1;93m!\033[1;91m]\033[1;97m Appuyer entrer pour retourner au menu...')
+        user_found()    	
+###################################################################################################
+def Par_identifiant():
+    _cls()
+    horaire()
+    print(logo)
+    print("\033[1;97m╔"+37*"═"+1*"═╗")
+    print("\033[1;97m║ \033[38;5;214m \033[1;91m[\033[1;96m1.\033[1;91m] snapchat    \033[1;91m[\033[1;96m10.\033[1;91m] Twitter      \033[1;97m║")
+    print("\033[1;97m║ \033[38;5;121m \033[1;91m[\033[1;96m2.\033[1;91m] Facebook    \033[1;91m[\033[1;96m11.\033[1;91m] Beenverified \033[1;97m║")
+    print("\033[1;97m║ \033[38;5;136m \033[1;91m[\033[1;96m3.\033[1;91m] Spokeo      \033[1;91m[\033[1;96m12.\033[1;91m] Peoplelooker \033[1;97m║") 
+    print("\033[1;97m║ \033[38;5;125m \033[1;91m[\033[1;96m4.\033[1;91m] instagram   \033[1;91m[\033[1;96m13.\033[1;91m] Myspace      \033[1;97m║")
+    print("\033[1;97m║ \033[38;5;125m \033[1;91m[\033[1;96m5.\033[1;91m] Linkedin    \033[1;91m[\033[1;96m14.\033[1;91m] Pagesjaunes  \033[1;97m║")
+    print("\033[1;97m║ \033[38;5;125m \033[1;91m[\033[1;96m6.\033[1;91m] Google plus \033[1;91m[\033[1;96m15.\033[1;91m] Libramemoria \033[1;97m║")
+    print("\033[1;97m║ \033[38;5;125m \033[1;91m[\033[1;96m7.\033[1;91m] Tumblr      \033[1;91m[\033[1;96m16.\033[1;91m] Avis-de-deces\033[1;97m║")
+    print("\033[1;97m║ \033[38;5;125m \033[1;91m[\033[1;96m8.\033[1;91m] Youtube     \033[1;91m[\033[1;96m17.\033[1;91m] Save Instagram\033[1;97m║")
+    print("\033[1;97m║ \033[38;5;125m \033[1;91m[\033[1;96m9.\033[1;91m] Peekyou     \033[1;91m[\033[1;96m18.\033[1;91m] Save Twitter  \033[1;97m║")
+    print("\033[1;97m║ \033[38;5;125m \033[1;91m[\033[1;96mG.\033[1;91m] General     \033[1;91m[\033[1;96m99.\033[1;91m] Twitter Faxel \033[1;97m║")
+    print("\033[1;97m║ \033[1;91m[\033[1;96mP.\033[1;91m]\033[38;5;125m Menu Precedent            \033[1;97m║") 
+    print("\033[1;97m║ \033[1;91m[\033[1;96mM.\033[1;91m]\033[38;5;125m Menu General              \033[1;97m║") 
+    print("\033[1;97m╚"+37*"═"+1*"═╝") 
+    print("\033[1;97m║")
+    choix_identifiant()
+def choix_identifiant():
+    _demande = raw_input("\033[1;97m╚═\033[1;31m▶\033[38;5;245m Mr \033[38;5;221mFaxel \033[1;97m═╬══\033[1;91m► \033[1;96m" )
+    if _demande =="":
+        print("\n\t\033[1;91m[\033[1;93m!\033[1;91m]\033[1;95m Remplissez correctement ")
+        Par_identifiant()
+	elif _demande == "1":
+        _cls()
+        _nom = raw_input("\033[1;91m[\033[1;93m*\033[1;91m]\033[1;97m Entrer votre nom \033[1;91m: \033[1;97m")
+	    _prenoms = raw_input("\033[1;91m[\033[1;93m*\033[1;91m]\033[1;97m Entrer votre prenom \033[1;91m: \033[1;97m ")
+		webbrowser.open('https://www.snapchat.com/add/'+_nom+''+_prenoms)
+        raw_input('\033[1;91m[\033[1;93m!\033[1;91m]\033[1;97m Appuyer entrer pour retourner au menu\033[1;93m...')
+		Par_identifiant()
+	elif _demande == "2":
+        _cls()
+        _nom = raw_input("\033[1;91m[\033[1;93m*\033[1;91m]\033[1;97m Entrer votre nom \033[1;91m: \033[1;97m")
+	    _prenoms = raw_input("\033[1;91m[\033[1;93m*\033[1;91m]\033[1;97m Entrer votre prenom \033[1;91m: \033[1;97m ")
+		webbrowser.open('https://www.facebook.com/search/top/?init=quick&q='+_nom+' '+_prenoms)
+        raw_input('\033[1;91m[\033[1;93m!\033[1;91m]\033[1;97m Appuyer entrer pour retourner au menu\033[1;93m...')
+		Par_identifiant()
+	elif _demande == "3":
+        _cls()
+        _nom = raw_input("\033[1;91m[\033[1;93m*\033[1;91m]\033[1;97m Entrer votre nom \033[1;91m: \033[1;97m")
+	    _prenoms = raw_input("\033[1;91m[\033[1;93m*\033[1;91m]\033[1;97m Entrer votre prenom \033[1;91m: \033[1;97m ")
+		webbrowser.open('https://www.spokeo.com/'+_nom+'-'+_prenoms)
+        raw_input('\033[1;91m[\033[1;93m!\033[1;91m]\033[1;97m Appuyer entrer pour retourner au menu\033[1;93m...')
+		Par_identifiant()
+	elif _demande == "4":
+        _cls()
+        _nom = raw_input("\033[1;91m[\033[1;93m*\033[1;91m]\033[1;97m Entrer votre nom \033[1;91m: \033[1;97m")
+	    _prenoms = raw_input("\033[1;91m[\033[1;93m*\033[1;91m]\033[1;97m Entrer votre prenom \033[1;91m: \033[1;97m ")
+		webbrowser.open('https://www.instagram.com/explore/tags/'+_nom+'')
+		Par_identifiant()
+	elif _demande == "5":
+        _cls()
+        _nom = raw_input("\033[1;91m[\033[1;93m*\033[1;91m]\033[1;97m Entrer votre nom \033[1;91m: \033[1;97m")
+	    _prenoms = raw_input("\033[1;91m[\033[1;93m*\033[1;91m]\033[1;97m Entrer votre prenom \033[1;91m: \033[1;97m ")
+		webbrowser.open('https://fr.linkedin.com/pub/dir/'+_nom+'/'+_prenoms)
+        raw_input('\033[1;91m[\033[1;93m!\033[1;91m]\033[1;97m Appuyer entrer pour retourner au menu\033[1;93m...')
+		Par_identifiant()
+	elif _demande == "6":
+        _cls()
+        _nom = raw_input("\033[1;91m[\033[1;93m*\033[1;91m]\033[1;97m Entrer votre nom \033[1;91m: \033[1;97m")
+	    _prenoms = raw_input("\033[1;91m[\033[1;93m*\033[1;91m]\033[1;97m Entrer votre prenom \033[1;91m: \033[1;97m ")
+		webbrowser.open('https://plus.google.com/s/'+_nom+' '+_prenoms+'/people')
+        raw_input('\033[1;91m[\033[1;93m!\033[1;91m]\033[1;97m Appuyer entrer pour retourner au menu\033[1;93m...')
+		Par_identifiant()
+	elif _demande == "7":
+		_cls()
+        _nom = raw_input("\033[1;91m[\033[1;93m*\033[1;91m]\033[1;97m Entrer votre nom \033[1;91m: \033[1;97m")
+	    _prenoms = raw_input("\033[1;91m[\033[1;93m*\033[1;91m]\033[1;97m Entrer votre prenom \033[1;91m: \033[1;97m ")
+		webbrowser.open('https://www.tumblr.com/search/'+_nom+'+'+_prenoms)
+        raw_input('\033[1;91m[\033[1;93m!\033[1;91m]\033[1;97m Appuyer entrer pour retourner au menu\033[1;93m...')
+		Par_identifiant()
+	elif _demande == "8":
+        _cls()
+        _nom = raw_input("\033[1;91m[\033[1;93m*\033[1;91m]\033[1;97m Entrer votre nom \033[1;91m: \033[1;97m")
+	    _prenoms = raw_input("\033[1;91m[\033[1;93m*\033[1;91m]\033[1;97m Entrer votre prenom \033[1;91m: \033[1;97m ")
+		webbrowser.open('http://www.youtube.com/results?search_query='+_nom+'+'+_prenoms)
+        raw_input('\033[1;91m[\033[1;93m!\033[1;91m]\033[1;97m Appuyer entrer pour retourner au menu\033[1;93m...')
+		Par_identifiant()
+	elif _demande == "9":
+        _cls()
+        _nom = raw_input("\033[1;91m[\033[1;93m*\033[1;91m]\033[1;97m Entrer votre nom \033[1;91m: \033[1;97m")
+	    _prenoms = raw_input("\033[1;91m[\033[1;93m*\033[1;91m]\033[1;97m Entrer votre prenom \033[1;91m: \033[1;97m ")
+		webbrowser.open('https://www.peekyou.com/'+_nom+'_'+_prenoms)
+        raw_input('\033[1;91m[\033[1;93m!\033[1;91m]\033[1;97m Appuyer entrer pour retourner au menu\033[1;93m...')
+		Par_identifiant()
+	elif _demande == "10":
+        _cls()
+        _nom = raw_input("\033[1;91m[\033[1;93m*\033[1;91m]\033[1;97m Entrer votre nom \033[1;91m: \033[1;97m")
+	    _prenoms = raw_input("\033[1;91m[\033[1;93m*\033[1;91m]\033[1;97m Entrer votre prenom \033[1;91m: \033[1;97m ")
+		webbrowser.open('https://mobile.twitter.com/search?q='+_nom+'+'+_prenoms)
+        raw_input('\033[1;91m[\033[1;93m!\033[1;91m]\033[1;97m Appuyer entrer pour retourner au menu\033[1;93m...')
+		Par_identifiant()
+	elif _demande == "11":
+        _cls()
+        _nom = raw_input("\033[1;91m[\033[1;93m*\033[1;91m]\033[1;97m Entrer votre nom \033[1;91m: \033[1;97m")
+	    _prenoms = raw_input("\033[1;91m[\033[1;93m*\033[1;91m]\033[1;97m Entrer votre prenom \033[1;91m: \033[1;97m ")
+		webbrowser.open('https://www.beenverified.com/lp/e030ee/1/loading?utm_id=peekyou_Peekyou_Contact_Address_Results_Button&age=&bvid=&city=&fn='+_nom+'&ln='+_prenoms)
+        raw_input('\033[1;91m[\033[1;93m!\033[1;91m]\033[1;97m Appuyer entrer pour retourner au menu\033[1;93m...')
+		Par_identifiant()
+	elif _demande == "12":
+         _cls()
+        nom = raw_input("\033[1;91m[\033[1;93m*\033[1;91m]\033[1;97m Entrer votre nom \033[1;91m: \033[1;97m")
+	    _prenoms = raw_input("\033[1;91m[\033[1;93m*\033[1;91m]\033[1;97m Entrer votre prenom \033[1;91m: \033[1;97m ")
+		webbrowser.open('https://www.peoplelooker.com/lp/5ee6b8/1/loading?utm_id=peekyou_peekyou_PL_phonebook_widget_web&fn='+_nom+'&ln='+_prenoms+'&city=&state=&age=&bvid=&utm_source=peekyou&utm_medium=channel_partner&utm_campaign=peekyou_PL_phonebook_widget_web&utm_content=static#.')
+        raw_input('\033[1;91m[\033[1;93m!\033[1;91m]\033[1;97m Appuyer entrer pour retourner au menu\033[1;93m...')
+		Par_identifiant()
+	elif _demande == "13":
+        _cls()
+        _nom = raw_input("\033[1;91m[\033[1;93m*\033[1;91m]\033[1;97m Entrer votre nom \033[1;91m: \033[1;97m")
+	    _prenoms = raw_input("\033[1;91m[\033[1;93m*\033[1;91m]\033[1;97m Entrer votre prenom \033[1;91m: \033[1;97m ")
+		webbrowser.open('https://myspace.com/search?q='+_nom+' '+_prenoms)
+        raw_input('\033[1;91m[\033[1;93m!\033[1;91m]\033[1;97m Appuyer entrer pour retourner au menu\033[1;93m...')
+		Par_identifiant()
+	elif _demande == "14":
+        _cls()
+        _nom = raw_input("\033[1;91m[\033[1;93m*\033[1;91m]\033[1;97m Entrer votre nom \033[1;91m: \033[1;97m")
+	    _prenoms = raw_input("\033[1;91m[\033[1;93m*\033[1;91m]\033[1;97m Entrer votre prenom \033[1;91m: \033[1;97m ")
+		webbrowser.open('https://www.pagesjaunes.fr/pagesblanches/recherche?quoiqui='+_nom+'+'+_prenoms)
+        raw_input('\033[1;91m[\033[1;93m!\033[1;91m]\033[1;97m Appuyer entrer pour retourner au menu\033[1;93m...')
+		Par_identifiant()
+	elif _demande == "15":
+        _cls()
+        _nom = raw_input("\033[1;91m[\033[1;93m*\033[1;91m]\033[1;97m Entrer votre nom \033[1;91m: \033[1;97m")
+	    _prenoms = raw_input("\033[1;91m[\033[1;93m*\033[1;91m]\033[1;97m Entrer votre prenom \033[1;91m: \033[1;97m ")
+		webbrowser.open('http://www.libramemoria.com/avis/?Nom='+_nom+'&Prenom='+_prenoms)
+        raw_input('\033[1;91m[\033[1;93m!\033[1;91m]\033[1;97m Appuyer entrer pour retourner au menu\033[1;93m...')
+		Par_identifiant()
+	elif _demande == "16":
+        _cls()
+        _nom = raw_input("\033[1;91m[\033[1;93m*\033[1;91m]\033[1;97m Entrer votre nom \033[1;91m: \033[1;97m")
+	    _prenoms = raw_input("\033[1;91m[\033[1;93m*\033[1;91m]\033[1;97m Entrer votre prenom \033[1;91m: \033[1;97m ")
+		webbrowser.open('https://www.avis-de-deces.net/avis/par-nom/?lastname='+_nom+'&firstname='+_prenoms)
+        raw_input('\033[1;91m[\033[1;93m!\033[1;91m]\033[1;97m Appuyer entrer pour retourner au menu\033[1;93m...')
+		Par_identifiant()
+	elif _demande == "17":
+        _cls()
+        _nom = raw_input("\033[1;91m[\033[1;93m*\033[1;91m]\033[1;97m Entrer votre nom \033[1;91m: \033[1;97m")
+	    _prenoms = raw_input("\033[1;91m[\033[1;93m*\033[1;91m]\033[1;97m Entrer votre prenom \033[1;91m: \033[1;97m ")
+		webbrowser.open('https://downloadgram.com')
+        raw_input('\033[1;91m[\033[1;93m!\033[1;91m]\033[1;97m Appuyer entrer pour retourner au menu\033[1;93m...')
+		Par_identifiant()
+	elif _demande == "18":
+        _cls()
+		webbrowser.open('https://download-twitter-videos.com/ar/')
+        raw_input('\033[1;91m[\033[1;93m!\033[1;91m]\033[1;97m Appuyer entrer pour retourner au menu\033[1;93m...')
+		Par_identifiant()
+	elif _demande == "g" or _demande == "G":
+		_cls()
+        _nom = raw_input("\033[1;91m[\033[1;93m*\033[1;91m]\033[1;97m Entrer votre nom \033[1;91m: \033[1;97m")
+	    _prenoms = raw_input("\033[1;91m[\033[1;93m*\033[1;91m]\033[1;97m Entrer votre prenom \033[1;91m: \033[1;97m ") 
+		webbrowser.open('https://pipl.com/search/?q='+_nom+'+'+_prenoms)
+		webbrowser.open('https://www.facebook.com/search/top/?init=quick&q='+_nom+' '+_prenoms)
+		webbrowser.open('https://www.spokeo.com/'+_nom+'-'+_prenoms)
+		webbrowser.open('https://www.flickr.com/search/people/?username='+_nom+' '+_prenoms)
+		webbrowser.open('https://www.linkedin.com/pub/dir/'+_nom+'/'+_prenoms)
+		webbrowser.open('https://plus.google.com/s/'+_nom+' '+_prenoms+'/people')
+		webbrowser.open('https://www.tumblr.com/search/'+_nom+'+'+_prenoms)
+		webbrowser.open('http://www.youtube.com/results?search_query='+_nom+'+'+_prenoms)
+		webbrowser.open('https://www.peekyou.com/'+_nom+'_'+_prenoms)
+		webbrowser.open('https://twitter.com/search?f=users&vertical=default&q= '+_nom+' '+_prenoms)
+		webbrowser.open('https://www.beenverified.com/lp/e030ee/1/loading?utm_id=peekyou_Peekyou_Contact_Address_Results_Button&age=&bvid=&city=&fn='+_nom+'&ln='+_prenoms)
+		webbrowser.open('https://www.peoplelooker.com/lp/5ee6b8/1/loading?utm_id=peekyou_peekyou_PL_phonebook_widget_web&fn='+_nom+'&ln='+_prenoms+'&city=&state=&age=&bvid=&utm_source=peekyou&utm_medium=channel_partner&utm_campaign=peekyou_PL_phonebook_widget_web&utm_content=static#.')
+		webbrowser.open('https://myspace.com/search?q='+_nom+' '+_prenoms)
+		webbrowser.open('https://www.pagesjaunes.fr/pagesblanches/recherche?quoiqui='+_nom+'+'+_prenoms)
+		webbrowser.open('https://www.libramemoria.com/avis/?Nom='+_nom+'&Prenom='+_prenoms)
+		webbrowser.open('https://www.avis-de-deces.net/avis/par-nom/?lastname='+_nom+'&firstname='+_prenoms)
+        raw_input('\033[1;91m[\033[1;93m!\033[1;91m]\033[1;97m Appuyer entrer pour retourner au menu\033[1;93m...')
+		Par_identifiant()
+	elif _demande == "99":
+		webbrowser.open('https://mobile.twitter.com/Faxel2020')
+        raw_input('\033[1;91m[\033[1;93m!\033[1;91m]\033[1;97m Appuyer entrer pour retourner au menu\033[1;93m...')
+		Par_identifiant()
+    elif dmd == "p" or dmd == "P":
+		user_found()
+    elif dmd == "m" or dmd == "M":
+		Menu()
+	else:
+        print('\n\x1b[1;91m[\xe2\x9c\x96] \x1b[1;97m '+_demande+' \x1b[1;91mindisponible')
+        raw_input('\033[1;91m[\033[1;93m!\033[1;91m]\033[1;97m Appuyer entrer pour retourner au menu\033[1;93m...')
+		Par_identifiant()
+
+###################################################################################################
+def Par_numero():
+    _cls()
+    horaire()
+    print(logo)
+    print("\033[1;97m╔"+37*"═"+1*"═╗")
+    print("\033[1;97m║ \033[38;5;214m \033[1;91m[\033[1;96m1.\033[1;91m] Okcaller                 \033[1;97m║")
+    print("\033[1;97m║ \033[38;5;121m \033[1;91m[\033[1;96m2.\033[1;91m] Facebook                 \033[1;97m║")
+    print("\033[1;97m║ \033[38;5;136m \033[1;91m[\033[1;96m3.\033[1;91m] France-inverse           \033[1;97m║") 
+    print("\033[1;97m║ \033[38;5;125m \033[1;91m[\033[1;96m4.\033[1;91m] Whitepages               \033[1;97m║")
+    print("\033[1;97m║ \033[38;5;125m \033[1;91m[\033[1;96m5.\033[1;91m] KSA-Numbers              \033[1;97m║")
+    print("\033[1;97m║ \033[38;5;125m \033[1;91m[\033[1;96m6.\033[1;91m] TROUVEZ QUI VOUS A APPELÉ\033[1;97m║")
+    print("\033[1;97m║ \033[38;5;125m \033[1;91m[\033[1;96m7.\033[1;91m] Pagesjaunes              \033[1;97m║")
+    print("\033[1;97m║ \033[1;91m[\033[1;96mP.\033[1;91m]\033[38;5;125m Menu Precedent        \033[1;97m║") 
+    print("\033[1;97m║ \033[1;91m[\033[1;96mM.\033[1;91m]\033[38;5;125m Menu General              \033[1;97m║") 
+    print("\033[1;97m╚"+37*"═"+1*"═╝") 
+    print("\033[1;97m║")
+    choix_numero()
+def choix_numero():
+    dmd = raw_input("\033[1;97m╚═\033[1;31m▶\033[38;5;245m Mr \033[38;5;221mFaxel \033[1;97m═╬══\033[1;91m► \033[1;96m" )
+    if dmd =="":
+        print("\n\t\033[1;91m[\033[1;93m!\033[1;91m]\033[1;95m Remplissez correctement ")
+        Par_numero()
+	elif dmd == "1":
+        _cls()
+        _numero = raw_input("\033[1;91m[\033[1;93m*\033[1;91m]\033[1;97m Entrer votre numero \033[1;91m: \033[1;97m")
+		webbrowser.open('http://www.okcaller.com/'+_numero)
+        raw_input('\033[1;91m[\033[1;93m!\033[1;91m]\033[1;97m Appuyer entrer pour retourner au menu\033[1;93m...')
+		Par_numero()
+	elif dmd == "2":
+        _cls()
+        _numero = raw_input("\033[1;91m[\033[1;93m*\033[1;91m]\033[1;97m Entrer votre numero \033[1;91m: \033[1;97m")
+		webbrowser.open('https://www.facebook.com/search/top/?init=quick&q='+_numero)
+        raw_input('\033[1;91m[\033[1;93m!\033[1;91m]\033[1;97m Appuyer entrer pour retourner au menu\033[1;93m...')
+		Par_numero()
+	elif dmd == "3":
+        _cls()
+        _numero = raw_input('\033[1;91m[\033[1;93m*\033[1;91m]\033[1;97m Entrer votre numero \033[1;91m: \033[1;97m")
+		webbrowser.open('http://www.france-inverse.com/annuaire-inverse/'+_numero)
+        raw_input('\033[1;91m[\033[1;93m!\033[1;91m]\033[1;97m Appuyer entrer pour retourner au menu\033[1;93m...')
+		Par_numero()
+	elif dmd == "4":
+        _cls()
+        _numero = raw_input("\033[1;91m[\033[1;93m*\033[1;91m]\033[1;97m Entrer votre numero \033[1;91m: \033[1;97m")
+		webbrowser.open('https://www.whitepages.com/phone/'+_numero)
+        raw_input('\033[1;91m[\033[1;93m!\033[1;91m]\033[1;97m Appuyer entrer pour retourner au menu\033[1;93m...')
+		Par_numero()
+	elif dmd == "5":
+        _cls()
+		webbrowser.open('https://storage.googleapis.com/ksa-n/index.html')
+        raw_input('\033[1;91m[\033[1;93m!\033[1;91m]\033[1;97m Appuyer entrer pour retourner au menu\033[1;93m...')
+		Par_numero()
+	elif dmd == "6":
+        _cls()
+        _numero = raw_input("\033[1;91m[\033[1;93m*\033[1;91m]\033[1;97m Entrer votre numero \033[1;91m: \033[1;97m")
+		webbrowser.open('http://canada411.pagesjaunes.ca/fs/'+_numero)
+        raw_input('\033[1;91m[\033[1;93m!\033[1;91m]\033[1;97m Appuyer entrer pour retourner au menu\033[1;93m...')
+		Par_numero()
+	elif dmd == "7":
+        _cls()
+        _numero = raw_input("\033[1;91m[\033[1;93m*\033[1;91m]\033[1;97m Entrer votre numero \033[1;91m: \033[1;97m")
+		webbrowser.open('https://www.pagesjaunes.fr/annuaireinverse/recherche?quoiqui='+_numero)
+        raw_input('\033[1;91m[\033[1;93m!\033[1;91m]\033[1;97m Appuyer entrer pour retourner au menu\033[1;93m...')
+		Par_numero()
+	elif dmd == "00":
+        _cls()
+        _numero = raw_input("\033[1;91m[\033[1;93m*\033[1;91m]\033[1;97m Entrer votre numero \033[1;91m: \033[1;97m")
+		webbrowser.open('http://www.okcaller.com/'+_numero)
+		webbrowser.open('https://www.facebook.com/search/top/?init=quick&q='+_numero)
+		webbrowser.open('http://www.france-inverse.com/annuaire-inverse/'+_numero)
+		webbrowser.open('https://www.whitepages.com/phone/'+_numero)
+		webbrowser.open('https://www.anywho.com/phone/'+_numero)
+		webbrowser.open('http://canada411.pagesjaunes.ca/fs/'+_numero)
+		webbrowser.open('https://www.pagesjaunes.fr/annuaireinverse/recherche?quoiqui='+_numero)
+        raw_input('\033[1;91m[\033[1;93m!\033[1;91m]\033[1;97m Appuyer entrer pour retourner au menu\033[1;93m...')
+		Par_numero()
+    elif dmd == "p" or dmd == "P":
+		user_found()
+    elif dmd == "m" or dmd == "M":
+		Menu()
+	else:
+        print('\n\x1b[1;91m[\xe2\x9c\x96] \x1b[1;97m '+dmd+' \x1b[1;91mindisponible')
+        raw_input('\033[1;91m [\033[1;93m!\033[1;91m]\033[1;97m Appuyer entrer pour retourner au menu\033[1;93m...')
+		menu()
+###################################################################################################                            
+def Faxelh():
+    _cls()
+    horaire()
+    print(logo)
+    print("\033[1;97m╔"+30*"═"+1*"═╗")
+    print("\033[1;97m║ \033[38;5;214m \033[1;91m[\033[1;96m1.\033[1;91m] Yandex            \033[1;97m║")
+    print("\033[1;97m║ \033[38;5;121m \033[1;91m[\033[1;96m2.\033[1;91m] bing              \033[1;97m║")
+    print("\033[1;97m║ \033[38;5;136m \033[1;91m[\033[1;96m3.\033[1;91m] labnol            \033[1;97m║") 
+    print("\033[1;97m║ \033[38;5;125m \033[1;91m[\033[1;96m4.\033[1;91m] Faxelh@yandex.com \033[1;97m║")
+    print("\033[1;97m║ \033[38;5;125m \033[1;91m[\033[1;96mG.\033[1;91m] General           \033[1;97m║")
+    print("\033[1;97m║ \033[1;91m[\033[1;96mP.\033[1;91m]\033[38;5;125m Menu Precedent     \033[1;97m║") 
+    print("\033[1;97m║ \033[1;91m[\033[1;96mM.\033[1;91m]\033[38;5;125m Menu General       \033[1;97m║") 
+    print("\033[1;97m╚"+30*"═"+1*"═╝") 
+    print("\033[1;97m║")
+    choix_Faxelh()
+def choix_Faxelh():
+    dmd = raw_input("\033[1;97m╚═\033[1;31m▶\033[38;5;245m Mr \033[38;5;221mFaxel \033[1;97m═╬══\033[1;91m► \033[1;96m" )
+    if dmd =="":
+        print("\n\t\033[1;91m[\033[1;93m!\033[1;91m]\033[1;95m Remplissez correctement ")
+        Faxelh()
+	if dmd == "1":
+        _cls()
+		webbrowser.open('https://www.yandex.com/images/')
+        raw_input('\033[1;91m[\033[1;93m!\033[1;91m]\033[1;97m Appuyer entrer pour retourner au menu\033[1;93m...')
+		Faxelh()
+	elif dmd == "2":
+        _cls()
+		webbrowser.open('https://www.bing.com/visualsearch?FORM=IDPSBC')
+        raw_input('\033[1;91m[\033[1;93m!\033[1;91m]\033[1;97m Appuyer entrer pour retourner au menu\033[1;93m...')
+		Faxelh()
+	elif dmd == "3":
+        _cls()
+		webbrowser.open('https://www.labnol.org/internet/mobile-reverse-image-search/29014/')
+        raw_input('\033[1;91m[\033[1;93m!\033[1;91m]\033[1;97m Appuyer entrer pour retourner au menu\033[1;93m...')
+		Faxelh()
+    elif dmd == "4":
+        _cls()
+		webbrowser.open('https://passport.yandex.com/profile')
+        raw_input('\033[1;91m[\033[1;93m!\033[1;91m]\033[1;97m Appuyer entrer pour retourner au menu\033[1;93m...')
+		Faxelh()
+	elif dmd == "g" or dmd == "G":
+        _cls()
+        _nom = raw_input("\033[1;91m[\033[1;93m*\033[1;91m]\033[1;97m Entrer votre nom \033[1;91m: \033[1;97m")
+	    _prenoms = raw_input("\033[1;91m[\033[1;93m*\033[1;91m]\033[1;97m Entrer votre prenom \033[1;91m: \033[1;97m ") 
+		webbrowser.open('http://www.libramemoria.com/avis/?Nom='+_nom+'&Prenom='+_prenoms)
+		webbrowser.open('https://www.avis-de-deces.net/avis/par-nom/?lastname='+_nom+'&firstname='+_prenoms)
+		webbrowser.open('http://enmemoria.lavanguardia.com/buscar?keywords='+_nom+'+'+_prenoms+'&type=death&_fstatus=search')
+        raw_input('\033[1;91m[\033[1;93m!\033[1;91m]\033[1;97m Appuyer entrer pour retourner au menu\033[1;93m...')
+		Faxelh()
+    elif dmd == "p" or dmd == "P":
+		user_found()
+    elif dmd == "m" or dmd == "M":
+		Menu()
+	else:
+		print('\n\x1b[1;91m[\xe2\x9c\x96] \x1b[1;97m '+dmd+' \x1b[1;91mindisponible')
+        raw_input('\033[1;91m [\033[1;93m!\033[1;91m]\033[1;97m Appuyer entrer pour retourner au menu\033[1;93m...')
+		Faxelh()
+###################################################################################################
+def Faxel_Ip():
+     _cls()
+    horaire()
+    print(logo)
+    print("\033[1;97m╔"+33*"═"+1*"═╗")
+    print("\033[1;97m║ \033[38;5;214m \033[1;91m[\033[1;96m1.\033[1;91m] Web Hosting Tool     \033[1;97m║")
+    print("\033[1;97m║ \033[38;5;121m \033[1;91m[\033[1;96m2.\033[1;91m] Mon adresse ip public\033[1;97m║")
+    print("\033[1;97m║ \033[38;5;136m \033[1;91m[\033[1;96m3.\033[1;91m] IP Whois             \033[1;97m║") 
+    print("\033[1;97m║ \033[38;5;125m \033[1;91m[\033[1;96mG.\033[1;91m] General              \033[1;97m║")
+    print("\033[1;97m║ \033[1;91m[\033[1;96mP.\033[1;91m]\033[38;5;125m Menu Precedent        \033[1;97m║") 
+    print("\033[1;97m║ \033[1;91m[\033[1;96mM.\033[1;91m]\033[38;5;125m Menu General          \033[1;97m║") 
+    print("\033[1;97m╚"+33*"═"+1*"═╝") 
+    print("\033[1;97m║")
+    choix_Faxel_Ip()
+def choix_Faxel_Ip():
+    dmd = raw_input("\033[1;97m╚═\033[1;31m▶\033[38;5;245m Mr \033[38;5;221mFaxel \033[1;97m═╬══\033[1;91m► \033[1;96m" )
+    if dmd =="":
+        print("\n\t\033[1;91m[\033[1;93m!\033[1;91m]\033[1;95m Remplissez correctement ")
+        Faxel_Ip()
+	elif dmd == "1":
+        _cls()
+        faxelh_ip = raw_input("\033[1;91m[\033[1;93m*\033[1;91m]\033[1;97m Entrer l'ip \033[1;91m: \033[1;97m")
+		webbrowser.open('https://www.g-force.ca/en/hosting/ip-whois?ip='+faxelh_ip)
+        raw_input('\033[1;91m[\033[1;93m!\033[1;91m]\033[1;97m Appuyer entrer pour retourner au menu\033[1;93m...')
+		Faxel_Ip()
+	elif dmd == "2":
+        _cls()
+        faxelh_ip = raw_input("\033[1;91m[\033[1;93m*\033[1;91m]\033[1;97m Entrer l'ip \033[1;91m: \033[1;97m")
+		webbrowser.open('http://whatismyipaddress.com/ip/'+faxelh_ip)
+        raw_input('\033[1;91m[\033[1;93m!\033[1;91m]\033[1;97m Appuyer entrer pour retourner au menu\033[1;93m...')
+		Faxel_Ip()
+	elif dmd == "3":
+        _cls()
+        faxelh_ip = raw_input("\033[1;91m[\033[1;93m*\033[1;91m]\033[1;97m Entrer l'ip \033[1;91m: \033[1;97m")
+		webbrowser.open('https://dig.whois.com.au/ip/'+faxelh_ip)
+        raw_input('\033[1;91m[\033[1;93m!\033[1;91m]\033[1;97m Appuyer entrer pour retourner au menu\033[1;93m...')
+		Faxel_Ip()
+	elif dmd == "g" or dmd == "G":
+        _cls()
+        faxelh_ip = raw_input("\033[1;91m[\033[1;93m*\033[1;91m]\033[1;97m Entrer l'ip \033[1;91m: \033[1;97m")
+		webbrowser.open('https://www.g-force.ca/en/hosting/ip-whois?ip='+faxelh_ip)
+		webbrowser.open('http://whatismyipaddress.com/ip/'+faxelh_ip)
+		webbrowser.open('https://dig.whois.com.au/ip/'+faxelh_ip)
+        raw_input('\033[1;91m[\033[1;93m!\033[1;91m]\033[1;97m Appuyer entrer pour retourner au menu\033[1;93m...')
+		Faxel_Ip()
+	elif dmd == "p" or dmd == "P":
+		user_found()
+    elif dmd == "m" or dmd == "M":
+		Menu()
+	else:
+        print('\n\x1b[1;91m[\xe2\x9c\x96] \x1b[1;97m '+dmd+' \x1b[1;91mindisponible')
+        raw_input('\033[1;91m [\033[1;93m!\033[1;91m]\033[1;97m Appuyer entrer pour retourner au menu\033[1;93m...')
+		Faxel_Ip()
+###################################################################################################
+###################################################################################################
 if __name__ == '__main__':
       securite()
 ###################################################################################################

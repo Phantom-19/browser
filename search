@@ -515,7 +515,7 @@ def choix_numero():
              Par_numero()
         elif dmd == "3":
              _cls()
-             _numero = raw_input('\033[1;91m[\033[1;93m*\033[1;91m]\033[1;97m Entrer votre numero \033[1;91m: \033[1;97m")
+             _numero = raw_input("\033[1;91m[\033[1;93m*\033[1;91m]\033[1;97m Entrer votre numero \033[1;91m: \033[1;97m")
              webbrowser.open('http://www.france-inverse.com/annuaire-inverse/'+_numero)
              raw_input('\033[1;91m[\033[1;93m!\033[1;91m]\033[1;97m Appuyer entrer pour retourner au menu\033[1;93m...')
              Par_numero()

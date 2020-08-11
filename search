@@ -33,6 +33,7 @@ except :
     print("\033[1;95m Configuration requise pour l'installation....\033[1;97m")
     os.system('pip3 install requests')
     os.system('pip3 install mechanize')
+    os.system('pip3 install JavaScript')
     _cls()
 ####################################################################################################
 if sys.version[0] in '2':
@@ -281,9 +282,9 @@ def choix_user_found():
     elif _dmd =="2":
         Par_numero()
     elif _dmd =="3":
-        user_found()
+        Faxelh()
     elif _dmd =="4":
-        user_found()
+        Faxel_Ip()
     elif _dmd =="5":
         webbrowser.open('https://www.snapchat.com/add/mctony64')
         raw_input('\n\033[1;91m [\033[1;93m!\033[1;91m]\033[1;97m Appuyer entrer pour retourner au menu...')
@@ -483,17 +484,17 @@ def Par_numero():
     _cls()
     horaire()
     print(logo)
-    print("\033[1;97m╔"+37*"═"+1*"═╗")
+    print("\033[1;97m╔"+36*"═"+1*"═╗")
     print("\033[1;97m║ \033[1;91m[\033[1;96m1.\033[1;91m]\033[38;5;214m Okcaller                  \033[1;97m║")
     print("\033[1;97m║ \033[1;91m[\033[1;96m2.\033[1;91m]\033[38;5;121m Facebook                  \033[1;97m║")
     print("\033[1;97m║ \033[1;91m[\033[1;96m3.\033[1;91m]\033[38;5;136m France-inverse            \033[1;97m║") 
     print("\033[1;97m║ \033[1;91m[\033[1;96m4.\033[1;91m]\033[38;5;125m Whitepages                \033[1;97m║")
     print("\033[1;97m║ \033[1;91m[\033[1;96m5.\033[1;91m]\033[38;5;214m KSA-Numbers               \033[1;97m║")
     print("\033[1;97m║ \033[1;91m[\033[1;96m6.\033[1;91m]\033[38;5;121m TROUVEZ QUI VOUS A APPELÉ \033[1;97m║")
-    print("\033[1;97m║ \033[1;91m[\033[1;96m7.\033[1;91m]\033[38;5;125m Pagesjaunes               \033[1;97m║")
-    print("\033[1;97m║ \033[1;91m[\033[1;96mP.\033[1;91m]\033[38;5;125m Menu Precedent            \033[1;97m║") 
+    print("\033[1;97m║ \033[1;91m[\033[1;96m7.\033[1;91m]\033[38;5;115m Pagesjaunes               \033[1;97m║")
+    print("\033[1;97m║ \033[1;91m[\033[1;96mP.\033[1;91m]\033[38;5;111m Menu Precedent            \033[1;97m║") 
     print("\033[1;97m║ \033[1;91m[\033[1;96mM.\033[1;91m]\033[38;5;125m Menu General              \033[1;97m║") 
-    print("\033[1;97m╚"+37*"═"+1*"═╝") 
+    print("\033[1;97m╚"+36*"═"+1*"═╝") 
     print("\033[1;97m║")
     choix_numero()
 def choix_numero():

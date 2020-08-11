@@ -2,7 +2,7 @@
 #Faxel \e[1;91m[\e[0m\e[1;73m+\e[0m\e[1;91m] 
 clear
 toilet -f pagga         user_found         | lolcat
-echo "Mise a jour de Security en cours........." | lolcat
+echo "Mise a jour de user_found en cours........." | lolcat
 echo ""
 git pull origin master
 echo "Mise à jour de user_found terminer........." | lolcat

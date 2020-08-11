@@ -268,6 +268,7 @@ def user_found():
     print("\033[1;97m║ \033[1;91m[\033[1;96m3.\033[1;91m]\033[38;5;227m Image (Nouveau)          \033[1;97m║")
     print("\033[1;97m║ \033[1;91m[\033[1;96m4.\033[1;91m]\033[38;5;136m Adresse IP               \033[1;97m║")
     print("\033[1;97m║ \033[1;91m[\033[1;96m5.\033[1;91m]\033[38;5;245m Snapchat de Faxel        \033[1;97m║")
+    print("\033[1;97m║ \033[1;91m[\033[1;96m6.\033[1;91m]\033[38;5;245m Menu Naviguateur         \033[1;97m║")
     print("\033[1;97m║ \033[1;91m[\033[1;96mM.\033[1;91m]\033[38;5;111m Menu General             \033[1;97m║")
     print("\033[1;97m╚"+30*"═"+1*"═╝") 
     print("\033[1;97m║")
@@ -289,6 +290,8 @@ def choix_user_found():
         webbrowser.open('https://www.snapchat.com/add/mctony64')
         raw_input('\n\033[1;91m [\033[1;93m!\033[1;91m]\033[1;97m Appuyer entrer pour retourner au menu...')
         user_found()
+    elif _dmd =="6":
+        Faxel_naviguateur()
     elif _dmd =="m" or _dmd =="M":
         Menu()     
     else:
@@ -568,15 +571,15 @@ def Faxelh():
     _cls()
     horaire()
     print(logo)
-    print("\033[1;97m╔"+30*"═"+1*"═╗")
+    print("\033[1;97m╔"+24*"═"+1*"═╗")
     print("\033[1;97m║ \033[1;91m[\033[1;96m1.\033[1;91m]\033[38;5;214m Yandex             \033[1;97m║")
     print("\033[1;97m║ \033[1;91m[\033[1;96m2.\033[1;91m]\033[38;5;121m bing               \033[1;97m║")
     print("\033[1;97m║ \033[1;91m[\033[1;96m3.\033[1;91m]\033[38;5;136m labnol             \033[1;97m║") 
     print("\033[1;97m║ \033[1;91m[\033[1;96m4.\033[1;91m]\033[38;5;125m Faxelh@yandex.com  \033[1;97m║")
     print("\033[1;97m║ \033[1;91m[\033[1;96mG.\033[1;91m]\033[38;5;212m General            \033[1;97m║")
-    print("\033[1;97m║ \033[1;91m[\033[1;96mP.\033[1;91m]\033[38;5;38m Menu Precedent      \033[1;97m║") 
-    print("\033[1;97m║ \033[1;91m[\033[1;96mM.\033[1;91m]\033[38;5;125m Menu General       \033[1;97m║") 
-    print("\033[1;97m╚"+30*"═"+1*"═╝") 
+    print("\033[1;97m║ \033[1;91m[\033[1;96mP.\033[1;91m]\033[38;5;38m  Menu Precedent    \033[1;97m║") 
+    print("\033[1;97m║ \033[1;91m[\033[1;96mM.\033[1;91m]\033[38;5;111m Menu General       \033[1;97m║") 
+    print("\033[1;97m╚"+24*"═"+1*"═╝") 
     print("\033[1;97m║")
     choix_Faxelh()
 def choix_Faxelh():
@@ -626,14 +629,14 @@ def Faxel_Ip():
     _cls()
     horaire()
     print(logo)
-    print("\033[1;97m╔"+33*"═"+1*"═╗")
+    print("\033[1;97m╔"+27*"═"+1*"═╗")
     print("\033[1;97m║ \033[1;91m[\033[1;96m1.\033[1;91m]\033[38;5;214m Web Hosting Tool      \033[1;97m║")
     print("\033[1;97m║ \033[1;91m[\033[1;96m2.\033[1;91m]\033[38;5;121m Mon adresse ip public \033[1;97m║")
     print("\033[1;97m║ \033[1;91m[\033[1;96m3.\033[1;91m]\033[38;5;136m IP Whois              \033[1;97m║") 
     print("\033[1;97m║ \033[1;91m[\033[1;96mG.\033[1;91m]\033[38;5;125m General               \033[1;97m║")
     print("\033[1;97m║ \033[1;91m[\033[1;96mP.\033[1;91m]\033[38;5;125m Menu Precedent        \033[1;97m║") 
     print("\033[1;97m║ \033[1;91m[\033[1;96mM.\033[1;91m]\033[38;5;125m Menu General          \033[1;97m║") 
-    print("\033[1;97m╚"+33*"═"+1*"═╝") 
+    print("\033[1;97m╚"+27*"═"+1*"═╝") 
     print("\033[1;97m║")
     choix_Faxel_Ip()
 def choix_Faxel_Ip():
@@ -675,6 +678,66 @@ def choix_Faxel_Ip():
              print('\n\x1b[1;91m[\xe2\x9c\x96] \x1b[1;97m '+dmd+' \x1b[1;91mindisponible')
              raw_input('\033[1;91m [\033[1;93m!\033[1;91m]\033[1;97m Appuyer entrer pour retourner au menu\033[1;93m...')
              Faxel_Ip()
+###################################################################################################
+def Faxel_naviguateur():
+    _cls()
+    horaire()
+    print(logo)
+    print("\033[1;97m╔"+27*"═"+1*"═╗")
+    print("\033[1;97m║ \033[1;91m[\033[1;96m1.\033[1;91m]\033[38;5;214m Google                \033[1;97m║")
+    print("\033[1;97m║ \033[1;91m[\033[1;96m2.\033[1;91m]\033[38;5;121m Facebook              \033[1;97m║")
+    print("\033[1;97m║ \033[1;91m[\033[1;96m3.\033[1;91m]\033[38;5;136m Instagram             \033[1;97m║") 
+    print("\033[1;97m║ \033[1;91m[\033[1;96m4.\033[1;91m]\033[38;5;127m Twitter               \033[1;97m║")
+    print("\033[1;97m║ \033[1;91m[\033[1;96m5.\033[1;91m]\033[38;5;227m Blogspot              \033[1;97m║")
+    print("\033[1;97m║ \033[1;91m[\033[1;96m6.\033[1;91m]\033[38;5;125m Github                \033[1;97m║")
+    print("\033[1;97m║ \033[1;91m[\033[1;96mP.\033[1;91m]\033[38;5;111m Menu Precedent        \033[1;97m║") 
+    print("\033[1;97m║ \033[1;91m[\033[1;96mM.\033[1;91m]\033[38;5;115m Menu General          \033[1;97m║") 
+    print("\033[1;97m╚"+27*"═"+1*"═╝") 
+    print("\033[1;97m║")
+    choix_Faxel_naviguateur()
+def choix_Faxel_naviguateur():
+        dmd = raw_input("\033[1;97m╚═\033[1;31m▶\033[38;5;245m Mr \033[38;5;221mFaxel \033[1;97m═╬══\033[1;91m► \033[1;96m" )
+        if dmd =="":
+            print("\n\t\033[1;91m[\033[1;93m!\033[1;91m]\033[1;95m Remplissez correctement ")
+            Faxel_naviguateur()
+        elif dmd == "1":
+             _cls()
+             webbrowser.open('https://www.google.com')
+             raw_input('\033[1;91m[\033[1;93m!\033[1;91m]\033[1;97m Appuyer entrer pour retourner au menu\033[1;93m...')
+             Faxel_naviguateur()
+        elif dmd == "2":
+             _cls()
+             webbrowser.open('http://www.facebook.com')
+             raw_input('\033[1;91m[\033[1;93m!\033[1;91m]\033[1;97m Appuyer entrer pour retourner au menu\033[1;93m...')
+             Faxel_naviguateur()
+        elif dmd == "3":
+             _cls()
+             webbrowser.open('https://www.instagram.com')
+             raw_input('\033[1;91m[\033[1;93m!\033[1;91m]\033[1;97m Appuyer entrer pour retourner au menu\033[1;93m...')
+             Faxel_naviguateur()
+        elif dmd == "4":
+             _cls()
+             webbrowser.open('https://www.twitter.com')
+             raw_input('\033[1;91m[\033[1;93m!\033[1;91m]\033[1;97m Appuyer entrer pour retourner au menu\033[1;93m...')
+             Faxel_naviguateur()
+        elif dmd == "5":
+             _cls()
+             webbrowser.open('https://faxelh.blogspot.com/')
+             raw_input('\033[1;91m[\033[1;93m!\033[1;91m]\033[1;97m Appuyer entrer pour retourner au menu\033[1;93m...')
+             Faxel_naviguateur()
+        elif dmd == "6":
+             _cls()
+             webbrowser.open('https://github.com/Phantom-19/')
+             raw_input('\033[1;91m[\033[1;93m!\033[1;91m]\033[1;97m Appuyer entrer pour retourner au menu\033[1;93m...')
+             Faxel_naviguateur()
+        elif dmd == "p" or dmd == "P":
+             user_found()
+        elif dmd == "m" or dmd == "M":
+             Menu()
+        else:
+             print('\n\x1b[1;91m[\xe2\x9c\x96] \x1b[1;97m '+dmd+' \x1b[1;91mindisponible')
+             raw_input('\033[1;91m [\033[1;93m!\033[1;91m]\033[1;97m Appuyer entrer pour retourner au menu\033[1;93m...')
+             Faxel_naviguateur()
 ###################################################################################################
 ###################################################################################################
 if __name__ == '__main__':

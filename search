@@ -17,8 +17,6 @@ logo_faxel =("""\033[38;5;247m╭━╮╭━╮╱╱\033[38;5;214m╭━━━
 # -Importation des modules-#
 try:
     import os, time, sys, fileinput, datetime, random, requests, mechanize,datetime,urllib2,urllib, urllib.request,webbrowser
-    from __future__ import absolute_import
-    from __future__ import print_function
     from six.moves import input
     from mechanize import Browser
     from requests import get, post 

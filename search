@@ -211,7 +211,7 @@ def user_found():
     cls()
     print(logo_faxel)
     print("\033[1;97m║")
-    _requete_en_cours = raw_input("\n\033[1;97m╚═\033[1;31m▶\033[38;5;245m Entrer un nom d'utilisateur \033[1;97m═╬══\033[1;91m► \033[1;96m")
+    _requete_en_cours = raw_input("\033[1;97m╚═\033[1;31m▶\033[38;5;245m Entrer un nom d'utilisateur \033[1;97m═╬══\033[1;91m► \033[1;96m")
     lien = {
         'https://www.facebook.com',
         'https://twitter.com',
@@ -258,7 +258,7 @@ def user_found():
     for lien_2 in lien :
         lien_3 = lien_2 +"/"+_requete_en_cours    
         try :  
-            _ouverture_url = urllib.request._ouverture_url(lien_3)    
+            _ouverture_url = get.request._ouverture_url(lien_3)    
             print( lien_3 + " ==> \n\033[1;92m Bon ")  
         except urllib.error.URLError as msg :       
                     print( lien_3 + " ==> \n\033[1;91m Desolé ")   

@@ -22,7 +22,7 @@ logo_faxel =("""\033[38;5;247m╭━╮╭━╮╱╱\033[38;5;214m╭━━━
 ####################################################################################################
 # -Importation des modules-#
 try:
-    import os, time, sys, fileinput, datetime, random, requests, mechanize,datetime,signal,platform,subprocess,webbrowser
+    import os, time, sys, fileinput, datetime, random, requests, mechanize,datetime,signal,subprocess,webbrowser
     from six.moves import input
     from mechanize import Browser
     from requests import get, post 
@@ -474,7 +474,7 @@ def choix_identifiant():
              user_found()
         elif dmd == "m" or dmd == "M":
              Menu()
-	else:
+        else:
              print('\n\x1b[1;91m[\xe2\x9c\x96] \x1b[1;97m '+_demande+' \x1b[1;91mindisponible')
              raw_input('\033[1;91m[\033[1;93m!\033[1;91m]\033[1;97m Appuyer entrer pour retourner au menu\033[1;93m...')
              Par_identifiant()
@@ -558,7 +558,7 @@ def choix_numero():
              user_found()
         elif dmd == "m" or dmd == "M":
              Menu()
-	else:
+        else:
              print('\n\x1b[1;91m[\xe2\x9c\x96] \x1b[1;97m '+dmd+' \x1b[1;91mindisponible')
              raw_input('\033[1;91m [\033[1;93m!\033[1;91m]\033[1;97m Appuyer entrer pour retourner au menu\033[1;93m...')
              Par_numero()
@@ -616,7 +616,7 @@ def choix_Faxelh():
              user_found()
         elif dmd == "m" or dmd == "M":
              Menu()
-	else:
+        else:
              print('\n\x1b[1;91m[\xe2\x9c\x96] \x1b[1;97m '+dmd+' \x1b[1;91mindisponible')
              raw_input('\033[1;91m [\033[1;93m!\033[1;91m]\033[1;97m Appuyer entrer pour retourner au menu\033[1;93m...')
              Faxelh()
@@ -670,7 +670,7 @@ def choix_Faxel_Ip():
              user_found()
         elif dmd == "m" or dmd == "M":
              Menu()
-	else:
+        else:
              print('\n\x1b[1;91m[\xe2\x9c\x96] \x1b[1;97m '+dmd+' \x1b[1;91mindisponible')
              raw_input('\033[1;91m [\033[1;93m!\033[1;91m]\033[1;97m Appuyer entrer pour retourner au menu\033[1;93m...')
              Faxel_Ip()
